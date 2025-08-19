@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolve Onboarding</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/themes@3.0.0/styles.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="rt-Theme" data-radius="medium" data-appearance="dark">
+        <div class="onboarding-container">
+            <!-- Left side - Form -->
+            <div class="form-section">
+                <div class="form-container">
+                    <!-- Step indicator -->
+                    <div class="step-header">
+                        <div class="rt-Badge rt-variant-outline" data-accent-color="blue">
+                            Step 1 of 5
+                        </div>
+                        
+                        <div class="header-text">
+                            <h1 class="rt-Heading size-7 season-heading">Start your automation journey</h1>
+                            <p class="rt-Text size-3">Take 2 minutes to share your goals and challenges with IT automation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Form fields -->
+                    <form class="onboarding-form">
+                        <div class="form-field">
+                            <label class="rt-Text size-3 weight-medium">Full name</label>
+                            <input type="text" class="rt-TextField-Input size-3" placeholder="First and last name">
+                        </div>
+
+                        <div class="form-field">
+                            <label class="rt-Text size-3 weight-medium">Work email</label>
+                            <input type="email" class="rt-TextField-Input size-3" placeholder="you@acme.com">
+                        </div>
+
+                        <div class="form-field">
+                            <label class="rt-Text size-3 weight-medium">Company name</label>
+                            <input type="text" class="rt-TextField-Input size-3" placeholder="Acme">
+                        </div>
+
+                        <div class="form-field">
+                            <label class="rt-Text size-3 weight-medium">Password</label>
+                            <input type="password" class="rt-TextField-Input size-3" placeholder="Enter password">
+                        </div>
+                    </form>
+
+                    <!-- Navigation buttons -->
+                    <div class="nav-buttons">
+                        <button class="rt-Button rt-variant-ghost size-2">
+                            Back
+                        </button>
+                        <button class="rt-Button rt-variant-outline size-2" onclick="window.location.href='step2.html'">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side - Ask Rita Interface -->
+            <div class="graphic-section">
+                <div class="rita-container">
+                    <!-- Background workflow nodes (subtle) -->
+                    <div class="background-workflow">
+                        <div class="bg-workflow-node">
+                            <span class="bg-node-text">Trigger</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node condition-large">
+                            <span class="bg-node-text">if-Else- if Else</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node">
+                            <span class="bg-node-text">ActionName</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node">
+                            <span class="bg-node-text">ActionName</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node trigger-style">
+                            <span class="bg-node-text">Trigger</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                    </div>
+
+                    <!-- Ask Rita Chat Interface -->
+                    <div class="rita-chat-interface">
+                        <div class="rita-chat-content">
+                            <div class="rita-header">
+                                <h2 class="rita-title season-heading">Ask Rita</h2>
+                                <p class="rita-subtitle">How can I help you today?</p>
+                            </div>
+                            
+                            <div class="rita-input-container">
+                                <input type="text" class="rita-input" id="ritaInput" placeholder="Message Rita..." />
+                                <button class="rita-send-btn" onclick="sendMessage()">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background curves -->
+                    <svg class="workflow-curves" viewBox="0 0 400 600">
+                        <path d="M 100 50 Q 250 100 200 250" stroke="rgba(0,102,255,0.1)" stroke-width="1" fill="none"/>
+                        <path d="M 300 150 Q 150 200 200 350" stroke="rgba(132,74,255,0.1)" stroke-width="1" fill="none"/>
+                        <path d="M 50 300 Q 200 350 150 500" stroke="rgba(0,255,163,0.1)" stroke-width="1" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('ritaInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Add sending animation
+                const sendBtn = document.querySelector('.rita-send-btn');
+                sendBtn.style.transform = 'translateY(-50%) scale(0.9)';
+                
+                setTimeout(() => {
+                    sendBtn.style.transform = 'translateY(-50%) scale(1)';
+                    input.value = '';
+                    
+                    // Show a little success feedback
+                    const interface = document.querySelector('.rita-chat-interface');
+                    interface.style.borderColor = '#00ff88';
+                    setTimeout(() => {
+                        interface.style.borderColor = '#0066ff';
+                    }, 1000);
+                }, 150);
+            }
+        }
+
+        // Handle Enter key in input
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('ritaInput');
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolve Onboarding - Step 2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/themes@3.0.0/styles.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="step2-styles.css">
+</head>
+<body>
+    <div class="rt-Theme" data-radius="medium" data-appearance="dark">
+        <div class="onboarding-container">
+            <!-- Left side - Form -->
+            <div class="form-section">
+                <div class="form-container">
+                    <!-- Step indicator -->
+                    <div class="step-header">
+                        <div class="rt-Badge rt-variant-outline" data-accent-color="blue">
+                            Step 2 of 5
+                        </div>
+                        
+                        <div class="header-text">
+                            <h1 class="rt-Heading size-7 season-heading">Configure your knowledge articles source</h1>
+                            <p class="rt-Text size-3">Get started by uploading your knowledge articles</p>
+                        </div>
+                    </div>
+
+                    <!-- Upload section -->
+                    <div class="upload-section">
+                        <label class="section-label">Upload knowledge articles</label>
+                        <button class="upload-button">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 11V5M8 5L5.5 7.5M8 5L10.5 7.5" stroke="#9eb1ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 11L3 12.5C3 13.0523 3.44772 13.5 4 13.5L12 13.5C12.5523 13.5 13 13.0523 13 12.5V11" stroke="#9eb1ff" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>Upload</span>
+                        </button>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="divider-section">
+                        <span class="divider-text">Or select one connection to sync your knowledge articles</span>
+                    </div>
+
+                    <!-- Connection options -->
+                    <div class="connection-options">
+                        <div class="connection-card" onclick="selectConnection(this, 'jira')">
+                            <div class="card-header">
+                                <div class="card-content">
+                                    <h3 class="card-title">Jira Confluence</h3>
+                                    <p class="card-description">Comprehensive API Integration</p>
+                                </div>
+                                <div class="card-radio">
+                                    <input type="radio" name="connection" value="jira" />
+                                </div>
+                            </div>
+                            <div class="card-expanded" id="jira-expanded">
+                                <div class="expanded-field">
+                                    <input type="text" class="expanded-input" placeholder="URL" />
+                                </div>
+                                <div class="expanded-field">
+                                    <input type="text" class="expanded-input" placeholder="API Key" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="connection-card" onclick="selectConnection(this, 'sharepoint')">
+                            <div class="card-header">
+                                <div class="card-content">
+                                    <h3 class="card-title">Sharepoint</h3>
+                                    <p class="card-description">Streamlined IT Service Workflows</p>
+                                </div>
+                                <div class="card-radio">
+                                    <input type="radio" name="connection" value="sharepoint" />
+                                </div>
+                            </div>
+                            <div class="card-expanded" id="sharepoint-expanded">
+                                <div class="expanded-field">
+                                    <input type="text" class="expanded-input" placeholder="URL" />
+                                </div>
+                                <div class="expanded-field">
+                                    <input type="text" class="expanded-input" placeholder="API Key" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="connection-card" onclick="selectConnection(this, 'servicenow')">
+                            <div class="card-header">
+                                <div class="card-content">
+                                    <h3 class="card-title">ServiceNow Knowledge</h3>
+                                    <p class="card-description">Optimized IT Service Processes</p>
+                                </div>
+                                <div class="card-radio">
+                                    <input type="radio" name="connection" value="servicenow" />
+                                </div>
+                            </div>
+                            <div class="card-expanded" id="servicenow-expanded">
+                                <div class="expanded-field">
+                                    <input type="text" class="expanded-input" placeholder="URL" />
+                                </div>
+                                <div class="expanded-field">
+                                    <input type="text" class="expanded-input" placeholder="API Key" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation buttons -->
+                    <div class="nav-buttons">
+                        <button class="rt-Button rt-variant-ghost size-2" onclick="window.location.href='index.html'">
+                            Back
+                        </button>
+                        <div class="nav-buttons-right">
+                            <button class="rt-Button rt-variant-ghost size-2">
+                                Configure later
+                            </button>
+                            <button class="rt-Button rt-variant-outline size-2 disabled" id="continueBtn">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side - Ask Rita Interface -->
+            <div class="graphic-section">
+                <div class="rita-container">
+                    <!-- Background workflow nodes (subtle) -->
+                    <div class="background-workflow">
+                        <div class="bg-workflow-node">
+                            <span class="bg-node-text">Trigger</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node condition-large">
+                            <span class="bg-node-text">if-Else- if Else</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node">
+                            <span class="bg-node-text">ActionName</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node">
+                            <span class="bg-node-text">ActionName</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                        <div class="bg-workflow-node trigger-style">
+                            <span class="bg-node-text">Trigger</span>
+                            <div class="bg-node-toggle"></div>
+                        </div>
+                    </div>
+
+                    <!-- Ask Rita Chat Interface -->
+                    <div class="rita-chat-interface">
+                        <div class="rita-chat-content">
+                            <div class="rita-header">
+                                <h2 class="rita-title season-heading">Ask Rita</h2>
+                                <p class="rita-subtitle">How can I help you today?</p>
+                            </div>
+                            
+                            <div class="rita-input-container">
+                                <input type="text" class="rita-input" id="ritaInput" placeholder="Message Rita..." />
+                                <button class="rita-send-btn" onclick="sendMessage()">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background curves -->
+                    <svg class="workflow-curves" viewBox="0 0 400 600">
+                        <path d="M 100 50 Q 250 100 200 250" stroke="rgba(0,102,255,0.1)" stroke-width="1" fill="none"/>
+                        <path d="M 300 150 Q 150 200 200 350" stroke="rgba(132,74,255,0.1)" stroke-width="1" fill="none"/>
+                        <path d="M 50 300 Q 200 350 150 500" stroke="rgba(0,255,163,0.1)" stroke-width="1" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectConnection(card, type) {
+            event.stopPropagation();
+            
+            // If clicking on an input, don't toggle the card
+            if (event.target.tagName === 'INPUT' && event.target.type === 'text') {
+                return;
+            }
+            
+            // Remove selected class from all cards and hide all expanded sections
+            document.querySelectorAll('.connection-card').forEach(c => {
+                c.classList.remove('selected');
+                c.classList.remove('expanded');
+            });
+            
+            // Add selected class to clicked card
+            card.classList.add('selected');
+            card.classList.add('expanded');
+            
+            // Check the radio button
+            card.querySelector('input[type="radio"]').checked = true;
+            
+            // Enable continue button when fields are filled
+            checkFormCompletion();
+        }
+        
+        function checkFormCompletion() {
+            const selectedCard = document.querySelector('.connection-card.selected');
+            if (selectedCard) {
+                const inputs = selectedCard.querySelectorAll('.expanded-input');
+                const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
+                
+                const continueBtn = document.getElementById('continueBtn');
+                if (allFilled) {
+                    continueBtn.classList.remove('disabled');
+                    continueBtn.onclick = () => window.location.href = 'completion.html';
+                } else {
+                    continueBtn.classList.add('disabled');
+                    continueBtn.onclick = null;
+                }
+            }
+        }
+        
+        // Add input listeners to all expanded inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.expanded-input').forEach(input => {
+                input.addEventListener('input', checkFormCompletion);
+                input.addEventListener('click', (e) => e.stopPropagation());
+            });
+        });
+
+        // Handle file upload
+        document.querySelector('.upload-button').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.multiple = true;
+            input.accept = '.pdf,.doc,.docx,.txt,.md';
+            input.onchange = function(e) {
+                const files = e.target.files;
+                if (files.length > 0) {
+                    // Enable continue button if files are selected
+                    const continueBtn = document.getElementById('continueBtn');
+                    continueBtn.classList.remove('disabled');
+                    continueBtn.onclick = () => window.location.href = 'completion.html';
+                    
+                    // Show success feedback
+                    const uploadBtn = document.querySelector('.upload-button');
+                    uploadBtn.innerHTML = `
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M13 4L6 11L3 8" stroke="#00ffa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>${files.length} file(s) selected</span>
+                    `;
+                    uploadBtn.style.borderColor = 'rgba(0, 255, 163, 0.3)';
+                }
+            };
+            input.click();
+        });
+
+        // Rita interaction functions
+        function sendMessage() {
+            const input = document.getElementById('ritaInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Add sending animation
+                const sendBtn = document.querySelector('.rita-send-btn');
+                sendBtn.style.transform = 'translateY(-50%) scale(0.9)';
+                
+                setTimeout(() => {
+                    sendBtn.style.transform = 'translateY(-50%) scale(1)';
+                    input.value = '';
+                    
+                    // Show a little success feedback
+                    const interface = document.querySelector('.rita-chat-interface');
+                    interface.style.borderColor = '#00ff88';
+                    setTimeout(() => {
+                        interface.style.borderColor = '#0066ff';
+                    }, 1000);
+                }, 150);
+            }
+        }
+
+        // Handle Enter key in Rita input
+        document.addEventListener('DOMContentLoaded', function() {
+            const ritaInput = document.getElementById('ritaInput');
+            if (ritaInput) {
+                ritaInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

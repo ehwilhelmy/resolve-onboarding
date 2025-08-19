@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up your experience - Resolve</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@radix-ui/themes@3.0.0/styles.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="completion-styles.css">
+</head>
+<body>
+    <div class="setup-container">
+        <div class="setup-content">
+            <!-- Loading Badge -->
+            <div class="loading-badge" id="loadingBadge">
+                Loading...
+            </div>
+            
+            <!-- Main Content -->
+            <div class="setup-header">
+                <h1 class="setup-title season-heading">Setting up your experience</h1>
+                <p class="setup-description">
+                    Connect your ticketing data to see which support tasks can be automated and time saved
+                </p>
+            </div>
+            
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="progress-step completed" id="step1">
+                    <div class="step-check">✓</div>
+                    <span class="step-text">Setting up your account</span>
+                </div>
+                
+                <div class="progress-step in-progress" id="step2">
+                    <div class="step-check hidden">✓</div>
+                    <div class="step-loader"></div>
+                    <span class="step-text">Adding knowledge base articles</span>
+                </div>
+                
+                <div class="progress-step" id="step3">
+                    <div class="step-check hidden">✓</div>
+                    <div class="step-loader hidden"></div>
+                    <span class="step-text">Setting up Rita</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start progress simulation
+            setTimeout(() => {
+                // Complete step 2, start step 3
+                completeStep(2);
+                startStep(3);
+            }, 2000);
+
+            setTimeout(() => {
+                // Complete step 3
+                completeStep(3);
+                
+                // Update loading badge to complete
+                const badge = document.getElementById('loadingBadge');
+                badge.textContent = 'Complete!';
+                badge.style.borderColor = 'rgba(0, 255, 136, 0.6)';
+                badge.style.color = '#00ff88';
+                
+                // Redirect to dashboard after completion
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+            }, 4000);
+        });
+
+        function completeStep(stepNumber) {
+            const step = document.getElementById('step' + stepNumber);
+            const loader = step.querySelector('.step-loader');
+            const check = step.querySelector('.step-check');
+            
+            // Hide loader, show checkmark
+            if (loader) loader.classList.add('hidden');
+            if (check) check.classList.remove('hidden');
+            
+            // Update step styling
+            step.classList.remove('in-progress');
+            step.classList.add('completed');
+        }
+
+        function startStep(stepNumber) {
+            const step = document.getElementById('step' + stepNumber);
+            const loader = step.querySelector('.step-loader');
+            
+            // Show loader
+            if (loader) loader.classList.remove('hidden');
+            
+            // Update step styling
+            step.classList.add('in-progress');
+        }
+    </script>
+</body>
+</html>
