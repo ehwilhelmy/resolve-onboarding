@@ -11,6 +11,10 @@
     {
       "source": "/dashboard",
       "destination": "/dashboard.html"
+    },
+    {
+      "source": "/manage",
+      "destination": "/manage.html"
     }
   ],
   "headers": [
