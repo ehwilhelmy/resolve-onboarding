@@ -1,20 +1,16 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/step2",
+      "destination": "/step2.html"
     },
     {
-      "src": "/step2",
-      "dest": "/step2.html"
+      "source": "/completion",
+      "destination": "/completion.html"
     },
     {
-      "src": "/completion",
-      "dest": "/completion.html"
-    },
-    {
-      "src": "/dashboard",
-      "dest": "/dashboard.html"
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
     }
   ],
   "headers": [
