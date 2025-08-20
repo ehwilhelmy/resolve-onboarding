@@ -97,7 +97,7 @@ body {
 
 /* Left Sidebar - Chats */
 .left-sidebar {
-    width: 280px;
+    width: 320px;
     background: rgba(248, 250, 252, 0.8);
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     padding: 24px;
@@ -105,6 +105,7 @@ body {
     flex-direction: column;
     gap: 20px;
     overflow-y: auto;
+    min-width: 320px;
 }
 
 /* Right Sidebar - Knowledge Base */
@@ -149,6 +150,8 @@ body {
     color: #1a1a1a;
     font-size: 14px;
     transition: all 0.2s ease;
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 .search-input::placeholder {
@@ -478,8 +481,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 40px 20px;
     gap: 40px;
+    min-width: 0;
 }
 
 .chat-header {
@@ -505,7 +509,8 @@ body {
 /* Chat Input */
 .chat-input-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
+    padding: 0 20px;
 }
 
 .chat-input-wrapper {
@@ -524,6 +529,8 @@ body {
     font-size: 16px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 .chat-input::placeholder {
@@ -978,17 +985,35 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) {
+    .left-sidebar {
+        width: 280px;
+        min-width: 280px;
+    }
+    
+    .right-sidebar {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
 @media (max-width: 1200px) {
     .left-sidebar {
-        width: 240px;
+        width: 260px;
+        min-width: 260px;
     }
     
     .right-sidebar {
         width: 280px;
+        min-width: 280px;
     }
     
     .chat-title {
         font-size: 40px;
+    }
+    
+    .chat-input-container {
+        max-width: 500px;
     }
 }
 
@@ -998,7 +1023,12 @@ body {
     }
     
     .left-sidebar {
-        width: 260px;
+        width: 280px;
+        min-width: 280px;
+    }
+    
+    .chat-input-container {
+        max-width: 600px;
     }
 }
 
@@ -1009,6 +1039,7 @@ body {
     
     .left-sidebar {
         width: 100%;
+        min-width: auto;
         height: auto;
         max-height: 200px;
         padding: 16px;
@@ -1019,7 +1050,12 @@ body {
     }
     
     .chat-container {
-        padding: 20px;
+        padding: 20px 16px;
+    }
+    
+    .chat-input-container {
+        max-width: none;
+        padding: 0 16px;
     }
     
     .chat-title {
