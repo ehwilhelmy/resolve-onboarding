@@ -413,78 +413,105 @@ body {
     z-index: 0;
 }
 
-/* Info Section Styles */
-.info-section {
+/* Additional Options Section */
+.additional-options {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
-.info-header {
+.options-header {
     text-align: center;
+    margin-bottom: 0.5rem;
 }
 
-.info-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: #ffffff;
-    margin: 0 0 8px 0;
-}
-
-.info-subtitle {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
-}
-
-.integration-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.integration-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-}
-
-.integration-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 102, 255, 0.1);
-    border: 1px solid rgba(0, 102, 255, 0.2);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0066ff;
-    flex-shrink: 0;
-}
-
-.integration-content {
-    flex: 1;
-}
-
-.integration-name {
+.options-title {
     font-size: 16px;
     font-weight: 500;
     color: #ffffff;
-    margin: 0 0 4px 0;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
 }
 
-.integration-desc {
+.options-subtitle {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
+    line-height: 1.5;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(0, 10, 25, 0.8);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.option-item:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.option-item:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.option-item:only-child {
+    border-radius: 8px;
+}
+
+.option-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.option-icon.jira svg {
+    width: 28px;
+    height: 28px;
+}
+
+.option-icon.sharepoint svg {
+    width: 28px;
+    height: 28px;
+}
+
+.option-icon.servicenow svg {
+    width: 28px;
+    height: 28px;
+}
+
+.option-content {
+    flex: 1;
+}
+
+.option-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 2px 0;
+}
+
+.option-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* Responsive design */
