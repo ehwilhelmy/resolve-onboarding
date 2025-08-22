@@ -413,6 +413,80 @@ body {
     z-index: 0;
 }
 
+/* Info Section Styles */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+.info-header {
+    text-align: center;
+}
+
+.info-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+.info-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+.integration-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.integration-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+.integration-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0066ff;
+    flex-shrink: 0;
+}
+
+.integration-content {
+    flex: 1;
+}
+
+.integration-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.integration-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
 /* Responsive design */
 @media (max-width: 1200px) {
     .onboarding-container {

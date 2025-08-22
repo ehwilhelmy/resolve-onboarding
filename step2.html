@@ -39,69 +39,49 @@
                         </button>
                     </div>
 
-                    <!-- Divider -->
-                    <div class="divider-section">
-                        <span class="divider-text">Or configure external sources (can also be done later in the app)</span>
-                    </div>
-
-                    <!-- Connection options -->
-                    <div class="connection-options">
-                        <div class="connection-card" onclick="selectConnection(this, 'jira')">
-                            <div class="card-header">
-                                <div class="card-content">
-                                    <h3 class="card-title">Jira Confluence</h3>
-                                    <p class="card-description">Comprehensive API Integration</p>
-                                </div>
-                                <div class="card-radio">
-                                    <input type="radio" name="connection" value="jira" />
-                                </div>
-                            </div>
-                            <div class="card-expanded" id="jira-expanded">
-                                <div class="expanded-field">
-                                    <input type="text" class="expanded-input" placeholder="URL" />
-                                </div>
-                                <div class="expanded-field">
-                                    <input type="text" class="expanded-input" placeholder="API Key" />
-                                </div>
-                            </div>
+                    <!-- Info Section -->
+                    <div class="info-section">
+                        <div class="info-header">
+                            <h3 class="info-title">Available integrations</h3>
+                            <p class="info-subtitle">You can connect these external sources anytime after setup in the app</p>
                         </div>
-
-                        <div class="connection-card" onclick="selectConnection(this, 'sharepoint')">
-                            <div class="card-header">
-                                <div class="card-content">
-                                    <h3 class="card-title">Sharepoint</h3>
-                                    <p class="card-description">Streamlined IT Service Workflows</p>
+                        
+                        <div class="integration-list">
+                            <div class="integration-item">
+                                <div class="integration-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <rect x="5" y="5" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9 9h6M9 12h6M9 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
                                 </div>
-                                <div class="card-radio">
-                                    <input type="radio" name="connection" value="sharepoint" />
-                                </div>
-                            </div>
-                            <div class="card-expanded" id="sharepoint-expanded">
-                                <div class="expanded-field">
-                                    <input type="text" class="expanded-input" placeholder="URL" />
-                                </div>
-                                <div class="expanded-field">
-                                    <input type="text" class="expanded-input" placeholder="API Key" />
+                                <div class="integration-content">
+                                    <h4 class="integration-name">Jira Confluence</h4>
+                                    <p class="integration-desc">Sync documentation and knowledge base articles</p>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="connection-card" onclick="selectConnection(this, 'servicenow')">
-                            <div class="card-header">
-                                <div class="card-content">
-                                    <h3 class="card-title">ServiceNow Knowledge</h3>
-                                    <p class="card-description">Optimized IT Service Processes</p>
+                            
+                            <div class="integration-item">
+                                <div class="integration-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                                 </div>
-                                <div class="card-radio">
-                                    <input type="radio" name="connection" value="servicenow" />
+                                <div class="integration-content">
+                                    <h4 class="integration-name">SharePoint</h4>
+                                    <p class="integration-desc">Connect to Microsoft SharePoint libraries</p>
                                 </div>
                             </div>
-                            <div class="card-expanded" id="servicenow-expanded">
-                                <div class="expanded-field">
-                                    <input type="text" class="expanded-input" placeholder="URL" />
+                            
+                            <div class="integration-item">
+                                <div class="integration-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
                                 </div>
-                                <div class="expanded-field">
-                                    <input type="text" class="expanded-input" placeholder="API Key" />
+                                <div class="integration-content">
+                                    <h4 class="integration-name">ServiceNow</h4>
+                                    <p class="integration-desc">Import IT service management knowledge</p>
                                 </div>
                             </div>
                         </div>
@@ -113,10 +93,10 @@
                             Back
                         </button>
                         <div class="nav-buttons-right">
-                            <button class="rt-Button rt-variant-ghost size-2">
-                                Configure later
+                            <button class="rt-Button rt-variant-ghost size-2" onclick="window.location.href='completion.html'">
+                                Skip for now
                             </button>
-                            <button class="rt-Button rt-variant-outline size-2 disabled" id="continueBtn">
+                            <button class="rt-Button rt-variant-outline size-2" id="continueBtn" onclick="window.location.href='completion.html'">
                                 Continue
                             </button>
                         </div>
@@ -182,55 +162,7 @@
     </div>
 
     <script>
-        function selectConnection(card, type) {
-            event.stopPropagation();
-            
-            // If clicking on an input, don't toggle the card
-            if (event.target.tagName === 'INPUT' && event.target.type === 'text') {
-                return;
-            }
-            
-            // Remove selected class from all cards and hide all expanded sections
-            document.querySelectorAll('.connection-card').forEach(c => {
-                c.classList.remove('selected');
-                c.classList.remove('expanded');
-            });
-            
-            // Add selected class to clicked card
-            card.classList.add('selected');
-            card.classList.add('expanded');
-            
-            // Check the radio button
-            card.querySelector('input[type="radio"]').checked = true;
-            
-            // Enable continue button when fields are filled
-            checkFormCompletion();
-        }
-        
-        function checkFormCompletion() {
-            const selectedCard = document.querySelector('.connection-card.selected');
-            if (selectedCard) {
-                const inputs = selectedCard.querySelectorAll('.expanded-input');
-                const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
-                
-                const continueBtn = document.getElementById('continueBtn');
-                if (allFilled) {
-                    continueBtn.classList.remove('disabled');
-                    continueBtn.onclick = () => window.location.href = 'completion.html';
-                } else {
-                    continueBtn.classList.add('disabled');
-                    continueBtn.onclick = null;
-                }
-            }
-        }
-        
-        // Add input listeners to all expanded inputs
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.expanded-input').forEach(input => {
-                input.addEventListener('input', checkFormCompletion);
-                input.addEventListener('click', (e) => e.stopPropagation());
-            });
-        });
+        // File upload functionality can be added here if needed
 
         // Handle file upload
         document.querySelector('.upload-button').addEventListener('click', function() {
