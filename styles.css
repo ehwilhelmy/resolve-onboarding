@@ -515,17 +515,13 @@ body {
     flex-shrink: 0;
 }
 
-.option-icon.jira svg {
-    width: 28px;
-    height: 28px;
+.option-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
-.option-icon.sharepoint svg {
-    width: 28px;
-    height: 28px;
-}
-
-.option-icon.servicenow svg {
+.option-icon svg {
     width: 28px;
     height: 28px;
 }
